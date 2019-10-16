@@ -30,9 +30,13 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Bloc Pattern"),
+        backgroundColor: Colors.deepPurpleAccent,
+        centerTitle: true,
+        elevation: 50,
       ),
       body: SingleChildScrollView(
         child: Container(
+          color: Colors.deepPurpleAccent,
           height: MediaQuery.of(context).size.height,
           padding: EdgeInsets.all(16),
           child: Column(
@@ -44,11 +48,19 @@ class HomePage extends StatelessWidget {
                 builder: (context, snapshot) => TextField(
                       onChanged: bloc.emailChanged,
                       keyboardType: TextInputType.emailAddress,
+                      textAlign: TextAlign.center,
                       decoration: InputDecoration(
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(50.0),
+                          borderSide: BorderSide(
+                              width: 0, 
+                              style: BorderStyle.none,
+                            ),
+                          ),
                           hintText: "Enter email",
-                          labelText: "Email",
-                          errorText: snapshot.error),
+                          // labelText: "Email",
+                          errorText: snapshot.error,
+                          focusColor: Colors.deepPurple[50], filled: true),
                     ),
               ),
               SizedBox(
@@ -59,12 +71,23 @@ class HomePage extends StatelessWidget {
                 builder: (context, snapshot) => TextField(
                       onChanged: bloc.passwordChanged,
                       keyboardType: TextInputType.text,
+                      textAlign: TextAlign.center,
                       obscureText: true,
                       decoration: InputDecoration(
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(50.0),
+                          borderSide: BorderSide(
+                              width: 0, 
+                              style: BorderStyle.none,
+                            ),
+                          ),
+                          
                           hintText: "Enter password",
-                          labelText: "Password",
-                          errorText: snapshot.error),
+                          hintStyle: TextStyle(color: Colors.deepPurpleAccent),
+                          // labelText: "Password",
+                          errorText: snapshot.error,
+                          fillColor: Colors.deepPurpleAccent[100], filled: true,
+                          focusColor: Colors.deepPurple[50]),
                     ),
               ),
               SizedBox(
@@ -74,10 +97,13 @@ class HomePage extends StatelessWidget {
                 stream: bloc.submitCheck,
                 builder: (context, snapshot) => RaisedButton(
                       color: Colors.tealAccent,
-                      onPressed: snapshot.hasData
-                          ? () => changeThePage(context)
-                          : null,
                       child: Text("Submit"),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40.0),
+                      ),
+                      onPressed: () => changeThePage(context)
+                          // ? () => changeThePage(context)
+                          // : null,
                     ),
               ),
             ],
