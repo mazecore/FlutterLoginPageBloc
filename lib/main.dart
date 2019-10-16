@@ -92,10 +92,17 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(
                 height: 20.0,
+                width: double.infinity,
               ),
+              SizedBox(
+                // height: MediaQuery.of(context).size.height,
+                width: double.infinity,
+              child:
               StreamBuilder<bool>(
+                
                 stream: bloc.submitCheck,
                 builder: (context, snapshot) => RaisedButton(
+                      padding: EdgeInsets.all(16),
                       color: Colors.tealAccent,
                       child: Text("Submit"),
                       shape: RoundedRectangleBorder(
@@ -105,6 +112,7 @@ class HomePage extends StatelessWidget {
                           // ? () => changeThePage(context)
                           // : null,
                     ),
+              ),
               ),
             ],
           ),

@@ -7,7 +7,7 @@ import './dummy_data.dart';
 
 
 Future<List<FollowerModel>> fetchHome(http.Client client) async {
-  final response = await client.get(api[0]);
+  final response = await client.get(urls['home_api']);
   print(response.body);
   return compute(parseFollowers, response.body);
 }
