@@ -32,13 +32,13 @@ class HomePage extends StatelessWidget {
         title: Text("Bloc Pattern"),
         backgroundColor: Colors.deepPurpleAccent,
         centerTitle: true,
-        elevation: 50,
+        elevation: 0,
       ),
       body: SingleChildScrollView(
         child: Container(
           color: Colors.deepPurpleAccent,
           height: MediaQuery.of(context).size.height,
-          padding: EdgeInsets.all(16),
+          padding: EdgeInsets.all(50),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -49,6 +49,7 @@ class HomePage extends StatelessWidget {
                       onChanged: bloc.emailChanged,
                       keyboardType: TextInputType.emailAddress,
                       textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.tealAccent),
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(50.0),
@@ -58,8 +59,11 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                           hintText: "Enter email",
+                          hintStyle: TextStyle(color: Colors.deepPurpleAccent),
                           // labelText: "Email",
                           errorText: snapshot.error,
+                          errorStyle: TextStyle(color: Colors.tealAccent),
+                          fillColor: Colors.deepPurpleAccent[100],
                           focusColor: Colors.deepPurple[50], filled: true),
                     ),
               ),
@@ -71,6 +75,7 @@ class HomePage extends StatelessWidget {
                 builder: (context, snapshot) => TextField(
                       onChanged: bloc.passwordChanged,
                       keyboardType: TextInputType.text,
+                      style: TextStyle(color: Colors.tealAccent),
                       textAlign: TextAlign.center,
                       obscureText: true,
                       decoration: InputDecoration(
@@ -86,25 +91,27 @@ class HomePage extends StatelessWidget {
                           hintStyle: TextStyle(color: Colors.deepPurpleAccent),
                           // labelText: "Password",
                           errorText: snapshot.error,
+                          errorStyle: TextStyle(color: Colors.tealAccent),
                           fillColor: Colors.deepPurpleAccent[100], filled: true,
                           focusColor: Colors.deepPurple[50]),
                     ),
               ),
               SizedBox(
                 height: 20.0,
-                width: double.infinity,
               ),
               SizedBox(
                 // height: MediaQuery.of(context).size.height,
-                width: double.infinity,
+                width: 300,
+                // height: 24.0,
               child:
               StreamBuilder<bool>(
                 
                 stream: bloc.submitCheck,
                 builder: (context, snapshot) => RaisedButton(
-                      padding: EdgeInsets.all(16),
-                      color: Colors.tealAccent,
+                      padding: EdgeInsets.all(20),
+                      color: Colors.white,
                       child: Text("Submit"),
+                      textColor: Colors.deepPurpleAccent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(40.0),
                       ),
