@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gdgbloc/bloc.dart';
-import 'package:gdgbloc/pagetwo.dart';
+import 'package:instAVenger/bloc.dart';
+import 'package:instAVenger/pagetwo.dart';
 
 void main() => runApp(MyApp());
 
