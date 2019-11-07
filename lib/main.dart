@@ -57,16 +57,12 @@ class _LoginPageState extends State<LoginPage> {
               Spacer(
                 flex: 8,
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 40,
-                ),
-                child: Text(
-                  "Sign in with your instagram account.",
-                  style: TextStyle(
-                    color: Colors.pink[50],
-                    fontSize: 20,
-                  ),
+              Text(
+                "Sign in with your instagram account.",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.pink[50],
+                  fontSize: 20,
                 ),
               ),
               Spacer(
@@ -78,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                   onChanged: bloc.emailChanged,
                   keyboardType: TextInputType.emailAddress,
                   // textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.deepPurple),
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50.0),
@@ -106,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                 builder: (context, snapshot) => TextFormField(
                   onChanged: bloc.passwordChanged,
                   keyboardType: TextInputType.text,
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.deepPurple),
                   // textAlign: TextAlign.center,
                   obscureText: true,
                   decoration: InputDecoration(
