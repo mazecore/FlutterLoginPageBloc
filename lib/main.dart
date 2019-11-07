@@ -41,38 +41,43 @@ class _LoginPageState extends State<LoginPage> {
       //   elevation: 0,
       // ),
       body: Center(
+        // child: SingleChildScrollView(
         child: Container(
+          height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
               gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Colors.deepPurpleAccent, Colors.deepPurple])),
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Colors.deepOrangeAccent, Colors.deepPurpleAccent],
+            stops: [-.4, .8],
+          )),
           padding: EdgeInsets.all(50),
           child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Spacer(
+                flex: 8,
+              ),
               Padding(
                 padding: const EdgeInsets.only(
                   left: 40,
-                  top: 0,
-                  right: 10,
-                  bottom: 80,
                 ),
                 child: Text(
-                  "Sign in with your instagram account",
+                  "Sign in with your instagram account.",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.pink[50],
                     fontSize: 20,
                   ),
                 ),
+              ),
+              Spacer(
+                flex: 1,
               ),
               StreamBuilder<String>(
                 stream: bloc.email,
                 builder: (context, snapshot) => TextFormField(
                   onChanged: bloc.emailChanged,
                   keyboardType: TextInputType.emailAddress,
-                  textAlign: TextAlign.center,
+                  // textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -87,14 +92,14 @@ class _LoginPageState extends State<LoginPage> {
                       // labelText: "Email",
                       // labelStyle: TextStyle(color: Colors.white),
                       errorText: snapshot.error,
-                      errorStyle: TextStyle(color: Colors.redAccent),
-                      fillColor: Colors.deepPurpleAccent[100],
+                      errorStyle: TextStyle(color: Colors.pinkAccent),
+                      fillColor: Colors.purple[100],
                       focusColor: Colors.deepPurple[50],
                       filled: true),
                 ),
               ),
-              SizedBox(
-                height: 20.0,
+              Spacer(
+                flex: 1,
               ),
               StreamBuilder<String>(
                 stream: bloc.password,
@@ -102,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                   onChanged: bloc.passwordChanged,
                   keyboardType: TextInputType.text,
                   style: TextStyle(color: Colors.white),
-                  textAlign: TextAlign.center,
+                  // textAlign: TextAlign.center,
                   obscureText: true,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -118,13 +123,13 @@ class _LoginPageState extends State<LoginPage> {
                       // labelStyle: TextStyle(color: Colors.white),
                       errorText: snapshot.error,
                       errorStyle: TextStyle(color: Colors.redAccent),
-                      fillColor: Colors.deepPurpleAccent[100],
+                      fillColor: Colors.purple[100],
                       filled: true,
                       focusColor: Colors.deepPurple[50]),
                 ),
               ),
-              SizedBox(
-                height: 20.0,
+              Spacer(
+                flex: 1,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -151,10 +156,14 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ],
               ),
+              Spacer(
+                flex: 8,
+              ),
             ],
           ),
         ),
       ),
+      // ),
     );
   }
 }
